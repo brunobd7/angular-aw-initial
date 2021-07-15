@@ -8,15 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intro-angular';
+  id = 0;
   nome= 'Bruno';
   adicionado = false;
-  listaFuncionarios = [];
+  lista = <any>[]; //ANY NAO E UM BOA PRATICA PARA TIPAGEM NESTE CASO
 
   adicionarPessoa(){
     // console.log('Salvando'+ this.name);
     console.log(`Salvando ${this.nome}`);
     this.adicionado = true;
-    // this.listaFuncionarios.push(this.nome)
+
+    this.lista.push({
+      id: ++this.id,
+      nome : this.nome
+    });
   }
 
   // alterarNome(event: any ){
