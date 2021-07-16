@@ -1,27 +1,7 @@
-<!--INTERPOLACAO {{}}-->
-<!-- () EVENT BIDING -->
-<!-- [] PROPRETY BINDING -->
-<!--DIRETIVA TWO WAY DATA BIDING[()] DENTRO DA SINTAX BANANA BOX-->
-
-<!-- DIRETIVAS
-  
-  COMPONENTES =  
-  ESTRUTURAIS  = * 
-  ATRIBUTOS = 
--->
-
 <div class="container">
-  <div class="alert alert-success" role="alert" *ngIf="adicionado">
-        Funcionário adicionado <strong>{{nome}}</strong>
-  </div>
 
-  <div class="mb-3">
-    <label class="form-label">Nome</label>
-       <input type="text" class="form-control" [(ngModel)]="nome" (focus) = "adicionado = false"> 
-  </div>
+  <app-funcionario-form (funcionarioAdicionado) = "aoAdicionar($event)"></app-funcionario-form>
   
-    <button type="button" class="btn btn-primary" (click)="adicionarPessoa()" [disabled] = "nome.length == 0">Adicionar</button> 
-
     <div class="row" style="margin-top: 20px;">
 
       <div class="col-2" *ngFor="let itemLista of lista">
@@ -31,13 +11,3 @@
     </div>
        
 </div>
-
-
- <!-- <input class="form-control" (input)="alterarNome($event)" [value] = "name"> -->
-
-  <!--on-click="adicionarPessoa()" JS TRADICIONAL EVENT-->
-  <!--(click)="adicionarPessoa()" ANGULAR SINTAX SUGGAR EVENT CALL-->
-  <!-- <button type="button" class="btn btn-primary" (click) = "adicionarPessoa(nameInput.value)">Adicionar </button> -->
-
-    <!-- <button type="button" class="btn btn-primary" bind-disabled = "name.length == 0">Adicionar</button> -->
-    <!-- PROPRETY BIND USANDO [] COLCHETES PARA SETAR DISABLED TRUE DE ACORDO COM EXPRESSAO TS -->

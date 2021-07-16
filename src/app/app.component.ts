@@ -8,24 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'intro-angular';
-  id = 0;
-  nome= 'Bruno';
-  adicionado = false;
+
   lista = <any>[]; //ANY NAO E UM BOA PRATICA PARA TIPAGEM NESTE CASO
 
-  adicionarPessoa(){
-    // console.log('Salvando'+ this.name);
-    console.log(`Salvando ${this.nome}`);
-    this.adicionado = true;
+  //@PARAM SÃO OS DADOS RECEBIDOS DO EVENTO DE CLICCK NO COMPONENT FORM QUE FOI REPASSADO POR PROPERTY BINDIND 
+  aoAdicionar(funcionario:any){
+    this.lista.push(funcionario);
 
-    this.lista.push({
-      id: ++this.id,
-      nome : this.nome
-    });
+
   }
-
-  // alterarNome(event: any ){
-  //   // console.log(event)
-  //   this.name = event.target.value;
-  // }
+  
 }
