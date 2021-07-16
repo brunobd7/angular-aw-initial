@@ -25,10 +25,7 @@
     <div class="row" style="margin-top: 20px;">
 
       <div class="col-2" *ngFor="let itemLista of lista">
-        <div class="card">
-          <img src="https://randomuser.me/api/portraits/men/{{itemLista.id}}.jpg" class="card-img-top" alt="...">
-          <div class="card-block">{{itemLista.nome}}</div>
-        </div>
+       <app-funcionario-card [funcionario] ="itemLista"></app-funcionario-card>
       </div>
 
     </div>
