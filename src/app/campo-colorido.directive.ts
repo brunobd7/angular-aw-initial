@@ -1,9 +1,12 @@
-import { Directive, ElementRef, HostBinding, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appCampoColorido]'
+  selector: '[appCampoColorido]',
+  exportAs: 'instaciaDiretivaCampoColorido'
 })
 export class CampoColoridoDirective {
+
+  @Input() color = 'grey';
  
   @HostBinding('style.backgroundColor') backColor: string = 'transparent';
   
@@ -13,17 +16,18 @@ export class CampoColoridoDirective {
 
   //DECORATOR - ANNOTATION TO LISTENER EVENTS
   @HostListener('focus')
-  onFieldFocus(){
+  addColorField(){
 
     // this.renderer.setStyle(this.elementRef.nativeElement,'background-color','red');
 
-    this.backColor = 'red';
+    // this.backColor = 'red';
+    this.backColor = this.color;
 
   }
 
   
   @HostListener('blur')
-  onFieldLeave(){
+  removeColorField(){
 
     // this.renderer.setStyle(this.elementRef.nativeElement,'background-color','white');
     this.backColor = 'transparent';
